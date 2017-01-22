@@ -162,3 +162,12 @@ add_shortcode( 'cyear', 'current_year' );
 function current_year( $atts ) {
 	return date_diff(date_create("{$atts['birthdate']}"), date_create('today'))->y;
 }
+/**
+* Remove Query Strings From Static Resources
+*/
+function _remove_script_version( $src ){
+	$parts = explode( '?ver', $src );
+	return $parts[0];
+}
+add_filter('script_loader_src','_remove_script_version',15,1);
+add_filter('style_loader_src','_remove_script_version',15,1);

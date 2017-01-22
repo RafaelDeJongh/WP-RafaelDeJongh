@@ -7,12 +7,14 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Rafael_De_Jongh
+ *
+ * <?php echo date("Y"); ?> //Auto Year Changer
  */
 ?>
 	</div><!-- #content -->
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			Copyright &copy; <?php echo date("Y"); ?> | Rafa&euml;l De Jongh | <a href="mailto:info@rafaeldejongh.com">info@rafaeldejongh.com</a> | All Rights Reserved.
+			Copyright &copy; 2016 | Rafa&euml;l De Jongh | <a href="mailto:info@rafaeldejongh.com">info@rafaeldejongh.com</a> | All Rights Reserved.
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
