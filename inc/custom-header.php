@@ -1,7 +1,6 @@
 <?php
 /**
  * Sample implementation of the Custom Header feature.
- *
  * You can add an optional custom header image to header.php like so ...
  *
 	<?php if ( get_header_image() ) : ?>
@@ -11,7 +10,6 @@
 	<?php endif; // End header image check. ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
- *
  * @package Rafael_De_Jongh
  */
 
