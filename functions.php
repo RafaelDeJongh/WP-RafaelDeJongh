@@ -135,7 +135,7 @@ function remove_admin_login_header(){
 }
 add_filter('wpseo_pre_analysis_post_content','mysite_opengraph_content');
 function mysite_opengraph_content($val){
-	return '<img src="http://www.rafaeldejongh.com/wp-content/uploads/2016/04/RafaelDeJongh-FB.jpg"/>' . $val;
+	return '<img src="https://www.rafaeldejongh.com/wp-content/uploads/2016/04/RafaelDeJongh-FB.jpg" alt="Rafaël De Jongh - Web Developer | 3D Artist"/>' . $val;
 }
 add_shortcode('cyear','current_year');
 function current_year($atts){
