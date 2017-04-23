@@ -157,8 +157,8 @@ embed,iframe,object{max-width:100%}
 /*Galleries
 --------------------------------------------------------------*/
 .gallery{margin-bottom:0}
-.gallery-item{display:inline-block;text-align:center;vertical-align:top;width:auto}
-.gallery-columns-2 .gallery-item{max-width:49.5%}
+.gallery-item{display:inline-block;text-align:center;vertical-align:top;width:100%}
+.gallery-columns-2 .gallery-item{max-width:50%}
 .gallery-columns-3 .gallery-item{max-width:33.33%}
 .gallery-columns-4 .gallery-item{max-width:25%}
 .gallery-columns-5 .gallery-item{max-width:20%}
@@ -278,8 +278,8 @@ h3{
 	border-bottom:2px solid #900;
 }
 .panel-grid-cell{margin:1em auto}
-/*.panel-grid-cell:nth-child(1){padding-left:10%}
-.panel-grid-cell:nth-child(2){padding-right:10%}*/
+.panel-grid-cell:nth-child(1){padding-left:10%}
+.panel-grid-cell:nth-child(2){padding-right:10%}
 #projects .panel-grid-cell{margin:0;padding:0}
 /*Header
 --------------------------------------------------------------*/
@@ -663,8 +663,8 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	.nav-next.nav-box.next{left:-18%}
 	.site-branding{margin-left:5%}
 	.main-navigation{margin-right:5%}
-	/*.panel-grid-cell:nth-child(1){padding-left:5%}
-	.panel-grid-cell:nth-child(2){padding-right:5%}*/
+	.panel-grid-cell:nth-child(1){padding-left:5%}
+	.panel-grid-cell:nth-child(2){padding-right:5%}
 	#socialside{
 		width:80%;
 		margin-top:10%;
