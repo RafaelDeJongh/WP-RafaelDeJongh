@@ -40,5 +40,6 @@ jQuery(document).ready(function($){
 		}
 	  }
 	});
+	$(window).bind("mousewheel",function(){$("html,body").stop(true,false);});
 	//End
 });
