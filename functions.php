@@ -51,7 +51,6 @@ function rafael_de_jongh_setup(){
 		'gallery',
 		'caption',
 	));
-	
 	// Set up the Wordpress Custom Logo Support
 	add_theme_support('custom-logo',array(
 	'height'      => 80,
@@ -60,11 +59,6 @@ function rafael_de_jongh_setup(){
 	'flex-width'  => true,
 	'header-text' => array('site-title','site-description'),
 	));
-	// Set up the WordPress core custom background feature.
-	/*add_theme_support('custom-background',apply_filters('rafael_de_jongh_custom_background_args',array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	)));*/
 }
 endif;
 add_action('after_setup_theme','rafael_de_jongh_setup');
@@ -75,20 +69,16 @@ add_action('after_setup_theme','rafael_de_jongh_setup');
  *
  * @global int $content_width
  */
-function rafael_de_jongh_content_width(){
-	$GLOBALS['content_width'] = apply_filters('rafael_de_jongh_content_width',800);
-}
+function rafael_de_jongh_content_width(){$GLOBALS['content_width'] = apply_filters('rafael_de_jongh_content_width',800);}
 add_action('after_setup_theme','rafael_de_jongh_content_width',0);
 /**
  * Enqueue scripts and styles.
  */
 function rafael_de_jongh_scripts(){
-	wp_enqueue_style('rafael-de-jongh-style',get_stylesheet_uri());
+	wp_enqueue_style('rafael-de-jongh-style',get_stylesheet_uri());	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');	wp_enqueue_script('theme-navigation',get_template_directory_uri() . '/js/custom-scripts.js',array('jquery'));
 	wp_enqueue_script('rafael-de-jongh-navigation',get_template_directory_uri() . '/js/navigation.js',array(),'20151215',true);
 	wp_enqueue_script('rafael-de-jongh-skip-link-focus-fix',get_template_directory_uri() . '/js/skip-link-focus-fix.js',array(),'20151215',true);
-	if (is_singular() && comments_open() && get_option('thread_comments')){
-		wp_enqueue_script('comment-reply');
-	}
+	if (is_singular() && comments_open() && get_option('thread_comments')){wp_enqueue_script('comment-reply');}
 }
 add_action('wp_enqueue_scripts','rafael_de_jongh_scripts');
 /**
@@ -110,11 +100,6 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Custom Functions.
  */
-add_action('wp_enqueue_scripts','enqueue_styles_scripts');
-function enqueue_styles_scripts(){ 
-	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
-	wp_enqueue_script('theme-navigation',get_template_directory_uri() . '/js/custom-scripts.js',array('jquery'));
-} 
 add_action('wp_before_admin_bar_render','remove_admin_bar_links',999);
 function remove_admin_bar_links(){
 	global $wp_admin_bar;
@@ -129,24 +114,16 @@ function remove_admin_bar_links(){
 	$wp_admin_bar->remove_node('customize');        //Remove customizer menu
 	$wp_admin_bar->remove_node('revslider');        //Remove rev slider menu
 }
-add_action('get_header','remove_admin_login_header');
-function remove_admin_login_header(){
-	remove_action('wp_head','_admin_bar_bump_cb');
-}
+//Add Default SEO Image
 add_filter('wpseo_pre_analysis_post_content','mysite_opengraph_content');
-function mysite_opengraph_content($val){
-	return '<img src="https://www.rafaeldejongh.com/wp-content/uploads/2016/04/RafaelDeJongh-FB.jpg" alt="Rafaël De Jongh - Web Developer | 3D Artist"/>' . $val;
-}
+function mysite_opengraph_content($val){return '<img src="https://www.rafaeldejongh.com/wp-content/uploads/2016/04/RafaelDeJongh-FB.jpg" alt="Rafaël De Jongh - Web Developer | 3D Artist"/>' . $val;}
+//Add current year shortcode
 add_shortcode('cyear','current_year');
-function current_year($atts){
-	return date_diff(date_create("{$atts['birthdate']}"),date_create('today'))->y;
-}
-/**
- * Remove Query Strings From Static Resources
- */
-function _remove_script_version($src){
-	$parts = explode('?ver',$src);
-	return $parts[0];
-}
-add_filter('script_loader_src','_remove_script_version',15,1);
-add_filter('style_loader_src','_remove_script_version',15,1);
+function current_year($atts){return date_diff(date_create("{$atts['birthdate']}"),date_create('today'))->y;}
+//Remove Query Strings From Static Resources
+function _remove_script_version($src){	$parts = explode('?ver',$src); return $parts[0];}add_filter('script_loader_src','_remove_script_version',15,1);add_filter('style_loader_src','_remove_script_version',15,1);
+//Denqueue Open Sans
+if(!function_exists('remove_wp_open_sans')) : function remove_wp_open_sans(){wp_deregister_style('open-sans'); wp_register_style('open-sans',false);} add_action('wp_enqueue_scripts','remove_wp_open_sans'); endif;
+//Remove Emojis
+remove_action('wp_head','print_emoji_detection_script',7);
+remove_action('wp_print_styles', 'print_emoji_styles');
