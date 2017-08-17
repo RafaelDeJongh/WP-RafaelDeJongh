@@ -15,7 +15,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 /*Table of content:
 = Reset
-= Wordpress 
+= Wordpress
 	- Menus
 	- Elements
 	- Accessibility
@@ -28,7 +28,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	- Media
 		-Captions
 		-Galleries
-= Style 
+= Style
 	- Forms
 		- Contact Form 7
 	- Typography
@@ -45,7 +45,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 		- ToTop
 	- 404 + Search
 	- Media Queries
-	- Links 
+	- Links
 = Scrollbar
 = Selection
 = WP Admin
@@ -148,6 +148,7 @@ body{
 --------------------------------------------------------------*/
 .page-content .wp-smiley,.entry-content .wp-smiley,.comment-content .wp-smiley{border:none;margin-bottom:0;margin-top:0;padding:0}
 embed,iframe,object{max-width:100%}
+.yt{width:100%;height:40vw}
 /*Captions
 --------------------------------------------------------------*/
 .wp-caption{margin-bottom:1.5em;max-width:100%}
@@ -226,13 +227,12 @@ textarea{
 	font-family:sans-serif;
 	min-height:172px;
 	min-width:400px;
-	/*width:600px!important;*/
 	max-width:100%;
 	max-height:350px;
-	-webkit-transition:none;
-	   -moz-transition:none;
-		 -o-transition:none;
-			transition:none;
+	-webkit-transition:none!important;
+	   -moz-transition:none!important;
+		 -o-transition:none!important;
+			transition:none!important;
 }
 /*CF7
 --------------------------------------------------------------*/
@@ -254,10 +254,8 @@ input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{
 /*Typography
 --------------------------------------------------------------*/
 .sfw{font-weight:500}
-h3{
-	font-size:26px;
-	margin-bottom:10px;
-}
+p{margin:4px 0 12px}
+h3{font-size:26px;margin-bottom:10px}
 /*Site Wrapper
 --------------------------------------------------------------*/
 .site{
@@ -278,8 +276,7 @@ h3{
 	border-bottom:2px solid #900;
 }
 .panel-grid-cell{margin:1em auto}
-.panel-grid-cell:nth-child(1){padding-left:10%}
-.panel-grid-cell:nth-child(2){padding-right:10%}
+.home .siteorigin-panels-stretch{padding:0 10%!important}
 #projects .panel-grid-cell{margin:0;padding:0}
 /*Header
 --------------------------------------------------------------*/
@@ -310,6 +307,14 @@ header#masthead{
 img.custom-logo{
 	width:auto;
 	max-height:70px
+}
+.archive .page-title{
+	font-size:24px;
+	width:100%;
+	text-align:center;
+	padding:10px 0;
+	background-color:#17171a;
+	border-bottom:1px solid #900;
 }
 /*Slider
 --------------------------------------------------------------*/
@@ -425,8 +430,12 @@ nav.navigation.post-navigation{margin:auto}
 	color:transparent;
 	text-shadow:none;
 	font-size:24px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	background:rgba(0,0,0,.25);
 }
-.nav-box a:hover{text-shadow:0 1px 0 #000}
+.nav-box a:hover{text-shadow:0 1px 0 #000;color:#fff}
 .nav-box a img{
 	position:absolute;
 	left:0;
@@ -664,8 +673,7 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	.nav-next.nav-box.next{left:-18%}
 	.site-branding{margin-left:5%}
 	.main-navigation{margin-right:5%}
-	.panel-grid-cell:nth-child(1){padding-left:5%}
-	.panel-grid-cell:nth-child(2){padding-right:5%}
+	.home .siteorigin-panels-stretch{padding:0 5%!important}
 	#socialside{
 		width:80%;
 		margin-top:10%;
@@ -710,8 +718,7 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	.main-navigation li{margin:12px 20px}
 	.projects{width:50%}
 	.projects header.entry-header,.projects .post-thumbnail a:before{opacity:1}
-	.panel-grid-cell:nth-child(1){padding:0 5%}
-	.panel-grid-cell:nth-child(2){padding-right:0}
+	.home .siteorigin-panels-stretch{padding:0 5%!important}
 	.sow-image-container{text-align:center}
 	.RafaelDeJonghPhoto img{
 		width:90%;
@@ -725,6 +732,10 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	input,textarea,button{
 		min-width:100%;
 		width:100%;
+	}
+	#socialcon{
+		margin-left:-5%;
+		margin-right:-5%;
 	}
 	#socialside{
 		width:100%;
@@ -744,7 +755,7 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	}
 	.nav-box a{
 		width:100%;
-		height:48vw;
+		height:100%;
 		max-width:100%;
 		max-height:100%;
 		line-height:45vw;
@@ -790,12 +801,4 @@ a:active,a:hover{color:#eee;text-decoration:underline}
 ::-moz-selection{color:#fefefe;background-color:#900}
 /*WP Admin
 --------------------------------------------------------------*/
-#wpadminbar{
-	opacity:0;
-	-webkit-transition:all .2s ease-in;
-	   -moz-transition:all .2s ease-in;
-		 -o-transition:all .2s ease-in;
-			transition:all .2s ease-in;
-}
-#wpadminbar:hover{opacity:1}
 .edit-link{display:none!important}
