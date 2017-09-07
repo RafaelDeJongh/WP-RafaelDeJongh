@@ -546,6 +546,7 @@ nav.navigation.post-navigation{margin:auto}
 #socialside a img{
 	opacity:.7;
 	display:block;
+	width:100%;
 	-webkit-transition:opacity .2s ease;
 	   -moz-transition:opacity .2s ease;
 		 -o-transition:opacity .2s ease;
@@ -734,12 +735,12 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 		width:100%;
 	}
 	#socialcon{
-		margin-left:-5%;
-		margin-right:-5%;
+		margin-left:-5.5%;
+		margin-right:-5.5%;
 	}
 	#socialside{
 		width:100%;
-		margin:-17px auto;
+		margin:-20px auto;
 		float:none;
 		display:flex;
 	}
