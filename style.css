@@ -276,7 +276,7 @@ h3{font-size:26px;margin-bottom:10px}
 	border-bottom:2px solid #900;
 }
 .panel-grid-cell{margin:1em auto}
-.home .siteorigin-panels-stretch{padding:0 10%!important}
+.home #pg-61-1,.home #pg-61-2{padding:0 10%!important}
 #projects .panel-grid-cell{margin:0;padding:0}
 /*Header
 --------------------------------------------------------------*/
