@@ -276,7 +276,7 @@ h3{font-size:26px;margin-bottom:10px}
 	border-bottom:2px solid #900;
 }
 .panel-grid-cell{margin:1em auto}
-.home #pg-61-1,.home #pg-61-2{padding:0 10%!important}
+.home .stretched{padding:0 10%!important}
 #projects .panel-grid-cell{margin:0;padding:0}
 /*Header
 --------------------------------------------------------------*/
@@ -545,8 +545,7 @@ nav.navigation.post-navigation{margin:auto}
 #socialside a:nth-of-type(3){clear:both}
 #socialside a img{
 	opacity:.7;
-	display:block;
-	width:100%;
+	display:block;	width:100%;
 	-webkit-transition:opacity .2s ease;
 	   -moz-transition:opacity .2s ease;
 		 -o-transition:opacity .2s ease;
@@ -674,7 +673,7 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	.nav-next.nav-box.next{left:-18%}
 	.site-branding{margin-left:5%}
 	.main-navigation{margin-right:5%}
-	.home .siteorigin-panels-stretch{padding:0 5%!important}
+	.home .stretched{padding:0 5%!important}
 	#socialside{
 		width:80%;
 		margin-top:10%;
@@ -719,7 +718,7 @@ a.jp-carousel-image-download:hover{color:#eee!important}
 	.main-navigation li{margin:12px 20px}
 	.projects{width:50%}
 	.projects header.entry-header,.projects .post-thumbnail a:before{opacity:1}
-	.home .siteorigin-panels-stretch{padding:0 5%!important}
+	.home .stretched{padding:0 5%!important}
 	.sow-image-container{text-align:center}
 	.RafaelDeJonghPhoto img{
 		width:90%;
