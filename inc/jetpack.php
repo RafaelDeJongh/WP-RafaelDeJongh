@@ -3,6 +3,7 @@
  * Jetpack Compatibility File.
  *
  * @link https://jetpack.com/
+ *
  * @package Rafael_De_Jongh
  */
 
@@ -19,10 +20,12 @@ function rafael_de_jongh_jetpack_setup() {
 		'render'    => 'rafael_de_jongh_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
+
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 }
 add_action( 'after_setup_theme', 'rafael_de_jongh_jetpack_setup' );
+
 /**
  * Custom render function for Infinite Scroll.
  */
