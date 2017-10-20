@@ -113,20 +113,21 @@ function remove_admin_bar_links(){
 	$wp_admin_bar->remove_node('revslider');        //Remove rev slider menu
 }
 //Add Default SEO Image
-add_filter('wpseo_pre_analysis_post_content','mysite_opengraph_content');
-function mysite_opengraph_content($val){return '<img src="https://www.rafaeldejongh.com/wp-content/uploads/2017/08/RafaelDeJongh-Web-Developer-3D-Artist.jpg" alt="Rafaël De Jongh - Web Developer | 3D Artist"/>' . $val;}
+$default_opengraph = 'https://www.rafaeldejongh.com/wp-content/uploads/2017/08/RafaelDeJongh-Web-Developer-3D-Artist.jpg';
+function add_default_opengraph($object){global $default_opengraph; $object->add_image($default_opengraph);}
+add_action('wpseo_add_opengraph_images','add_default_opengraph');
+function default_opengraph(){global $default_opengraph; return $default_opengraph;}
+add_filter('wpseo_twitter_image','default_opengraph');
 //Add current year shortcode
 add_shortcode('cyear','current_year');
 function current_year($atts){return date_diff(date_create("{$atts['birthdate']}"),date_create('today'))->y;}
-//Remove Query Strings From Static Resources
-function _remove_script_version($src){
-$parts = explode('?',$src);
-return $parts[0];
-}
-add_filter('script_loader_src','_remove_script_version',15,1);
-add_filter('style_loader_src','_remove_script_version',15,1);
 //Denqueue Open Sans
 if(!function_exists('remove_wp_open_sans')) : function remove_wp_open_sans(){wp_deregister_style('open-sans'); wp_register_style('open-sans',false);} add_action('wp_enqueue_scripts','remove_wp_open_sans'); endif;
-//Remove Emojis
-remove_action('wp_head','print_emoji_detection_script',7);
-remove_action('wp_print_styles','print_emoji_styles');
+//Remove JS Jetpack
+function jeherve_dequeue_devicepx(){wp_dequeue_script('devicepx');}
+add_action( 'wp_enqueue_scripts', 'jeherve_dequeue_devicepx' );
+//Load Contact Form 7 only on Home Page
+add_action( 'wp_print_scripts','my_deregister_javascript',100);
+function my_deregister_javascript(){if(!is_page('Home')){wp_deregister_script('contact-form-7');}}
+add_action( 'wp_print_styles','my_deregister_styles', 100 );
+function my_deregister_styles(){if(!is_page('Home')){wp_deregister_style('contact-form-7');}}
