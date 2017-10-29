@@ -75,7 +75,9 @@ add_action('after_setup_theme','rafael_de_jongh_content_width',0);
  * Enqueue scripts and styles.
  */
 function rafael_de_jongh_scripts(){
-	wp_enqueue_style('rafael-de-jongh-style',get_stylesheet_uri());	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');	wp_enqueue_script('theme-navigation',get_template_directory_uri() . '/js/custom-scripts.js',array('jquery'));
+	wp_enqueue_style('rafael-de-jongh-style',get_stylesheet_uri());
+	//wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	wp_enqueue_script('theme-navigation',get_template_directory_uri() . '/js/custom-scripts.js',array('jquery'));
 	wp_enqueue_script('rafael-de-jongh-navigation',get_template_directory_uri() . '/js/navigation.js',array(),'20151215',true);
 	wp_enqueue_script('rafael-de-jongh-skip-link-focus-fix',get_template_directory_uri() . '/js/skip-link-focus-fix.js',array(),'20151215',true);
 }
