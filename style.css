@@ -235,7 +235,7 @@ textarea{
 		 -o-transition:none!important;
 			transition:none!important;
 }
-/*CF7
+/*Contact Form 7
 --------------------------------------------------------------*/
 .wpcf7-response-output{
 	margin:16px 0!important;
@@ -251,6 +251,24 @@ input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{
 	background-color:rgba(250,255,189,.2)!important;
 	color:#fff!important;
 	text-shadow:none;
+}
+div.wpcf7 .ajax-loader.is-active{
+	background:none;
+	height:30px;
+	width:30px;
+	margin:0 0 0 8px;
+}
+div.wpcf7 .ajax-loader.is-active:after{
+	content:"\f110";
+	-webkit-animation:fa-spin 1s infinite steps(8);
+	animation:fa-spin 1s infinite steps(8);
+	text-align:center;
+	display:inline-block;
+	font:normal normal normal 23px/1 FontAwesome;
+	text-rendering:auto;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	color:#900;
 }
 /*Typography
 --------------------------------------------------------------*/
