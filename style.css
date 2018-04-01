@@ -810,7 +810,7 @@ a,a:visited{
 a:active,a:hover{color:#eee;text-decoration:underline}
 /*Scrollbar
 --------------------------------------------------------------*/
-::-webkit-scrollbar{width:12x;height:12px;background:#121212}
+::-webkit-scrollbar{width:12px;height:12px;background:#121212}
 ::-webkit-scrollbar-thumb{background:#900}
 ::-webkit-scrollbar-corner{background:#1a1a1a}
 ::-webkit-scrollbar-button{width:12px;height:12px}
