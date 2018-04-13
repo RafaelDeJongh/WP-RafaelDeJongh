@@ -116,7 +116,7 @@ function remove_admin_bar_links(){
 }
 //Add Default SEO Image
 $default_opengraph = 'https://www.rafaeldejongh.com/wp-content/uploads/2017/08/RafaelDeJongh-Web-Developer-3D-Artist.jpg';
-function add_default_opengraph($object){global $default_opengraph; $object->add_image($default_opengraph);}
+function add_default_opengraph($object){if(is_front_page()){global $default_opengraph;$object->add_image($default_opengraph);}}
 add_action('wpseo_add_opengraph_images','add_default_opengraph');
 function default_opengraph(){global $default_opengraph; return $default_opengraph;}
 add_filter('wpseo_twitter_image','default_opengraph');
@@ -127,9 +127,9 @@ function current_year($atts){return date_diff(date_create("{$atts['birthdate']}"
 if(!function_exists('remove_wp_open_sans')) : function remove_wp_open_sans(){wp_deregister_style('open-sans'); wp_register_style('open-sans',false);} add_action('wp_enqueue_scripts','remove_wp_open_sans'); endif;
 //Remove JS Jetpack
 function jeherve_dequeue_devicepx(){wp_dequeue_script('devicepx');}
-add_action( 'wp_enqueue_scripts', 'jeherve_dequeue_devicepx' );
+add_action('wp_enqueue_scripts','jeherve_dequeue_devicepx');
 //Load Contact Form 7 only on Home Page
-add_action( 'wp_print_scripts','my_deregister_javascript',100);
+add_action('wp_print_scripts','my_deregister_javascript',100);
 function my_deregister_javascript(){if(!is_page('Home')){wp_deregister_script('contact-form-7');}}
-add_action( 'wp_print_styles','my_deregister_styles', 100 );
+add_action('wp_print_styles','my_deregister_styles',100);
 function my_deregister_styles(){if(!is_page('Home')){wp_deregister_style('contact-form-7');}}
