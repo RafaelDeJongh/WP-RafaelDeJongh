@@ -290,10 +290,6 @@ textarea{
 	outline:0;
 	box-sizing:border-box
 }
-span.privacyPolicy{
-	display:block;
-	margin-left:1.5em;
-}
 /*Contact Form 7
 -----------*/
 .wpcf7-response-output{
