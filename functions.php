@@ -101,6 +101,43 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Custom Functions.
  */
+//Add SVG Upload Support
+add_filter('upload_mimes','cc_mime_types');
+function cc_mime_types($mimes){
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('wp_update_attachment_metadata','svg_meta_data',10,2);
+function svg_meta_data($data,$id){
+	$attachment = get_post($id);
+	$mime_type = $attachment->post_mime_type;
+	if($mime_type == 'image/svg+xml'){
+		if(empty($data) || empty($data['width']) || empty($data['height'])){
+			$xml = simplexml_load_file(wp_get_attachment_url($id));
+			$attr = $xml->attributes();
+			$viewbox = explode(' ',$attr->viewBox);
+			$data['width'] = isset($attr->width) && preg_match('/\d+/',$attr->width,$value) ? (int) $value[0] :(count($viewbox) == 4 ? (int) $viewbox[2] :null);
+			$data['height'] = isset($attr->height) && preg_match('/\d+/',$attr->height,$value) ? (int) $value[0] :(count($viewbox) == 4 ? (int) $viewbox[3] :null);
+		}
+	}
+	return $data;
+}
+//Remove Dashes and Copy Title to ALT
+add_action('add_attachment','image_meta_upload');
+function image_meta_upload($post_ID){
+    if(wp_attachment_is_image($post_ID)){
+        $image_title = get_post($post_ID)->post_title;
+        $image_title = preg_replace('%\s*[-_\s]+\s*%',' ',$image_title);
+        $image_title = ucwords(strtolower($image_title));
+        $my_image_meta = array(
+            'ID'                => $post_ID,
+            'post_title'        => $image_title,
+        );
+        update_post_meta($post_ID,'_wp_attachment_image_alt',$image_title);
+        wp_update_post($my_image_meta);
+    }
+}
+//Remove Unneeded admin bar items
 add_action('wp_before_admin_bar_render','remove_admin_bar_links',999);
 function remove_admin_bar_links(){
 	global $wp_admin_bar;
@@ -127,9 +164,9 @@ function current_year($atts){return date_diff(date_create("{$atts['birthdate']}"
 if(!function_exists('remove_wp_open_sans')) : function remove_wp_open_sans(){wp_deregister_style('open-sans'); wp_register_style('open-sans',false);} add_action('wp_enqueue_scripts','remove_wp_open_sans'); endif;
 //Remove JS Jetpack
 function jeherve_dequeue_devicepx(){wp_dequeue_script('devicepx');}
-add_action('wp_enqueue_scripts','jeherve_dequeue_devicepx');
+add_action( 'wp_enqueue_scripts', 'jeherve_dequeue_devicepx' );
 //Load Contact Form 7 only on Home Page
-add_action('wp_print_scripts','my_deregister_javascript',100);
+add_action( 'wp_print_scripts','my_deregister_javascript',100);
 function my_deregister_javascript(){if(!is_page('Home')){wp_deregister_script('contact-form-7');}}
-add_action('wp_print_styles','my_deregister_styles',100);
+add_action( 'wp_print_styles','my_deregister_styles', 100 );
 function my_deregister_styles(){if(!is_page('Home')){wp_deregister_style('contact-form-7');}}

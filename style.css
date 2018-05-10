@@ -235,6 +235,59 @@ textarea{
 		 -o-transition:none!important;
 			transition:none!important;
 }
+[type="checkbox"]:not(:checked),[type="checkbox"]:checked,[type="radio"]:not(:checked),[type="radio"]:checked{
+	position:absolute;
+	left:-9999px
+}
+[type="checkbox"]:not(:checked) + span,[type="checkbox"]:checked + span,[type="radio"]:not(:checked) + span,[type="radio"]:checked + span{
+	position:relative;
+	padding-left:30px;
+	cursor:pointer;
+	display:inline-block;
+	margin-left:-1em;
+}
+[type="checkbox"]:not(:checked) + span:before,[type="checkbox"]:checked + span:before,[type="checkbox"]:not(:checked) + span:after,[type="checkbox"]:checked + span:after,[type="radio"]:not(:checked) + span:before,[type="radio"]:checked + span:before,[type="radio"]:not(:checked) + span:after,[type="radio"]:checked + span:after{
+	content:'';
+	position:absolute
+}
+[type="checkbox"]:not(:checked) + span:before,[type="checkbox"]:checked + span:before,[type="radio"]:not(:checked) + span:before,[type="radio"]:checked + span:before{
+	left:0;
+	top:5px;
+	width:20px;
+	height:20px;
+	border:2px solid #900;
+	border-radius:3px;
+	transition:background-color .2s
+}
+[type="radio"]:not(:checked) + span:before,[type="radio"]:checked + span:before{
+	border-radius:100%;
+}
+[type="checkbox"]:checked + span:before,[type="radio"]:checked + span:before{
+	background:#900;
+	border:2px solid #900
+}
+[type="checkbox"]:checked + span:before,[type="checkbox"]:not(:checked) + span:before,[type="radio"]:checked + span:before,[type="radio"]:not(:checked) + span:before{
+	content:"";
+	display:inline-block;
+	width:22px;
+	height:22px;
+	position:absolute;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:80%
+}
+[type="checkbox"]:checked + span:before,[type="radio"]:checked + span:before{
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTczLjkgNDM5LjRMNy41IDI3M2MtMTAtMTAtMTAtMjYuMiAwLTM2LjJsMzYuMi0zNi4yYzEwLTEwIDI2LjItMTAgMzYuMiAwTDE5MiAzMTIuNyA0MzIuMSA3Mi42YzEwLTEwIDI2LjItMTAgMzYuMiAwbDM2LjIgMzYuMmMxMCAxMCAxMCAyNi4yIDAgMzYuMkwyMTAuMSA0MzkuNGMtMTAgMTAtMjYuMiAxMC0zNi4yIDB6Ii8+PC9zdmc+)
+}
+[type="checkbox"]:checked + span:after,[type="radio"]:checked + span:after{
+	border:0;
+	outline:0;
+	box-sizing:border-box
+}
+span.privacyPolicy{
+	display:block;
+	margin-left:1.5em;
+}
 /*Contact Form 7
 --------------------------------------------------------------*/
 .wpcf7-response-output{
@@ -419,6 +472,10 @@ img.custom-logo{
 .projects:hover header.entry-header{opacity:1}
 /*Single Posts
 --------------------------------------------------------------*/
+body:not(.home):not(.blog):not(.single) article{
+	margin:1em auto;
+	width:80%;
+}
 .single .projects{
 	width:80%;
 	display:block;
