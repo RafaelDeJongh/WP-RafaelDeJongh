@@ -9,7 +9,7 @@
 	</div><!-- #content -->
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			Copyright &copy; 2016 &ndash; <?php echo date("Y"); ?> | Rafa&euml;l De Jongh | <a href="mailto:info@rafaeldejongh.com">info@rafaeldejongh.com</a> | All Rights Reserved
+			<a href="/copyright/">Copyright &copy; 2016 &ndash; <?php echo date("Y"); ?></a> | Rafa&euml;l De Jongh | <a href="mailto:info@rafaeldejongh.com">info@rafaeldejongh.com</a> | All Rights Reserved
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

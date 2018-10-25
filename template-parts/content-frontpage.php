@@ -14,6 +14,9 @@ if(($wp_query->current_post +1) != ($wp_query->post_count)){
 	<?php }?>
 	<header class="entry-header">
 		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+		<div class="entry-meta">
+			<h6 class="updated updated_on"><?php Rafael_De_Jongh_posted_on(); ?></h6>
+		</div>
 	</header>
 </article>
 <?php } else { ?>

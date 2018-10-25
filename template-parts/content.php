@@ -15,14 +15,17 @@
 	<?php }?>
 	<header class="entry-header">
 		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			if(is_single()){
+				the_title('<h1 class="entry-title">','</h1>');
+			}else{
+				the_title('<h2 class="entry-title"><a href="' . esc_url( get_permalink()) . '" rel="bookmark">', '</a></h2>');
 			}
 		?>
+		<div class="entry-meta">
+			<h6 class="updated updated_on"><?php Rafael_De_Jongh_posted_on(); ?></h6>
+		</div>
 	</header><!-- .entry-header -->
-<?php if ( is_single() ) {?>
+<?php if(is_single()){?>
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
@@ -34,5 +37,5 @@
 				'after'  => '</div>',
 			) );
 		?>
-</div><?php }?><!-- .entry-content -->
+	</div><?php }?><!-- .entry-content -->
 </article><!-- #post-## -->

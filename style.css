@@ -135,7 +135,7 @@ body{
 /*Posts and pages
 -----------------*/
 .sticky{display:block}
-.byline,.updated:not(.published){display:none}
+.entry-meta,.byline,.updated:not(.published){display:none}
 .single .byline,.group-blog .byline{display:inline}
 .page-links{clear:both;margin:0 0 1.5em}
 /*Comments
@@ -474,9 +474,9 @@ img.custom-logo{
 .projects:hover header.entry-header{opacity:1}
 /*Single Posts
 --------------*/
-body:not(.home):not(.blog):not(.single) article{
+body:not(.home):not(.blog):not(.single):not(.archive) article{
 	margin:1em auto;
-	width:80%;
+	width:80%
 }
 .single .projects{
 	width:80%;
